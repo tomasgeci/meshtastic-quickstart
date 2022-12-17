@@ -38,7 +38,7 @@
 ## import/export config
 
 - export config `meshtastic --export-config > example_868_config.yaml`
-- import config `meshtastic --configure example_config.yaml`
+- import config `meshtastic --configure example_868_config.yaml`
 
 ## use specific port
 
