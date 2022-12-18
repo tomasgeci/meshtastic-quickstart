@@ -2,12 +2,29 @@
 
 - https://meshtastic.org/docs/getting-started
 
+## which frequency to use - based on region and regulations
+
+### disclaimer
+
+- please keep in mind that not each frequency is generally available for you - use of improper frequency can be a violation of law in your country
+- please check your local regulations before start - usage of frequency spectrum is strictly regulated by local authorities
+- check frequencies allowed for LoRa in your region (https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/)
+- please don't use EU_433 (433MHz) as a default option - it has some regulations and default module configuration does not fullfill those rules
+- holders of HAM-radio licence can use EU_433 in IARU region R1 - see HAM-only section of this document
+
+### recommended frequency in EU
+
+- EU_868 (868MHz) in most of European Union countries
+- check your country on the list (https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/)
+
 ## how to install
 
-- Load new FW via **meshtastic flasher GUI** to some folder
-- go to unpacked firmware folder and install FW `.\device-install.bat -f firmware-tlora-v2-1-1.6-2.0.7.91ff7b9.bin`
+- load new FW via **Meshtastic Flasher GUI** (https://meshtastic.org/docs/getting-started/flashing-firmware/esp32/python-flasher)
+- or *install via CLI*
+	- download firmware file from https://github.com/meshtastic/firmware/releases and unpack `firmware*.zip` or use **Meshtastic Flasher GUI** to download firmware files
+	- go to unpacked firmware folder and install firmware (change `bin` file according to your board and version) `.\device-install.bat -f firmware-tlora-v2-1-1.6-2.0.7.91ff7b9.bin` (tested on Windows 10)
 
-## configure with BLE
+## configure with BLE (for EU 868MHz version)
 
 - install python-cli (https://meshtastic.org/docs/software/python/cli)
 - configure basic settings:
@@ -30,8 +47,9 @@
 - `meshtastic --set device.debug_log_enabled true`
 - `meshtastic --set device.serial_enabled true`
 
-## special HAM version 433MHz (no encryption with callsign)
+## special HAM-only version 433MHz (no encryption allowed with callsign required)
 
+- **this frequency is allowed to use only with HAM-radio licence**
 - `meshtastic --set lora.region EU_433`
 - `meshtastic --set-ham AB1CDE`
 
