@@ -17,6 +17,13 @@
 - EU_868 (868MHz) in most of European Union countries
 - check your country on the list (https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/)
 
+### antennas
+
+- you **can't use** a high gain antenna to transmitt - default board radio settings and antenna with gain over 2.15dBi (for example simple dipole) will violate allowed ERP/EIRP
+- only +16dBm EIRP is allowed in EU_868 (https://www.thethingsnetwork.org/docs/lorawan/regional-parameters/#eu863-870-maximum-eirp--erp)
+- it is recommended to use original small `stock` antenna delivered with module
+- in case of EU_433 and HAM-radio - consider your local permissions in 433MHz band acording to your HAM-radio license
+
 ## how to install
 
 - load new FW via **Meshtastic Flasher GUI** (https://meshtastic.org/docs/getting-started/flashing-firmware/esp32/python-flasher)
@@ -51,7 +58,7 @@
 
 - **this frequency is allowed to use only with HAM-radio licence**
 - `meshtastic --set lora.region EU_433`
-- `meshtastic --set-ham AB1CDE`
+- `meshtastic --set-ham AB1CDE` where `AB1CDE` is your HAM-radio callsign
 
 ## import/export config
 
