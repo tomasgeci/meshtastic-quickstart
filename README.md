@@ -26,6 +26,7 @@
 
 ## how to install
 
+- load new firmware via **web installer** (https://flasher.meshtastic.org/)
 - load new FW via **Meshtastic Flasher GUI** (https://meshtastic.org/docs/getting-started/flashing-firmware/esp32/python-flasher)
 - or *install via CLI*
 	- download firmware file from https://github.com/meshtastic/firmware/releases and unpack `firmware*.zip` or use **Meshtastic Flasher GUI** to download firmware files
